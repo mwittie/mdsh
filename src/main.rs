@@ -4,6 +4,16 @@ use std::{
 };
 
 use anyhow::Context;
+
+/// Trims trailing ASCII whitespace from a byte slice.
+/// Stable alternative to the unstable `trim_ascii_end()` method.
+fn trim_ascii_end(bytes: &[u8]) -> &[u8] {
+    let mut end = bytes.len();
+    while end > 0 && bytes[end - 1].is_ascii_whitespace() {
+        end -= 1;
+    }
+    &bytes[..end]
+}
 use clap::Parser;
 use mdsh::{
     cli::{FileArg, Opt, Parent},
@@ -71,7 +81,7 @@ fn process_file(
             }
             let file_unmodified_check = !frozen || input_content.as_bytes() == buffer;
 
-            std::fs::write(outf, buffer.trim_ascii_end())
+            std::fs::write(outf, trim_ascii_end(&buffer))
                 .with_context(|| format!("failed to write file {outf:?}"))?;
 
             file_unmodified_check

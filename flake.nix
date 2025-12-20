@@ -48,6 +48,9 @@
               ./Cargo.toml
               ./Cargo.lock
               ./src
+              ./spec.clear.md
+              ./spec.processed.md
+              ./samples
             ];
           };
 

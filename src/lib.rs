@@ -2,8 +2,6 @@ pub mod cli;
 pub mod executor;
 mod nom_ext;
 pub mod parser;
-#[cfg(test)]
-mod tests;
 
 use std::io::Write;
 

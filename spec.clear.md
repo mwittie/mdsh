@@ -439,4 +439,22 @@ foo=bar
 
 ``> $ echo "\`\$foo\` is $foo"``
 
+## Transition text
+
+#### Code block with transition producing raw markdown
+
+```sh > $ :: which outputs:
+echo 'hello world'
+```
+
+#### Code block with transition producing code block
+
+```sh > txt $ :: which outputs:
+echo 'hello world'
+```
+
+#### Inline code with transition producing raw markdown
+
+`> $ echo 'hello world' :: which outputs:`
+
 The end!

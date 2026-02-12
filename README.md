@@ -158,6 +158,36 @@ These slightly deviate from the rest of containers:
 [<out_cmd> <in_cmd> whatever here is ignored](<data_line>)
 ```
 
+## Transition text
+
+You can insert text between the mdsh invocation and its generated output by appending `:: text` to the command. 
+This works in all container types, but is most useful in a code block. 
+For example:
+
+````md
+```sh > sh $ :: which outputs:
+echo 'hello world'
+```
+````
+
+results in:
+
+````md
+```sh > sh $ :: which outputs:
+echo 'hello world'
+```
+
+<!-- BEGIN mdsh -->
+which outputs:
+
+```sh
+hello world
+```
+<!-- END mdsh --
+````
+
+When rendered, this shows the command, the transition ("which outputs:"), and the output supporting a natural reading flow.
+
 ## Installation
 
 The best way to install `mdsh` is with the rust tool cargo.

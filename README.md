@@ -160,8 +160,7 @@ These slightly deviate from the rest of containers:
 
 ## Transition text
 
-You can insert text between the mdsh invocation and its generated output by appending `:: text` to the command. 
-This works in all container types, but is most useful in a code block. 
+You can insert text between an `mdsh` invocation and its output by appending `:: text` to the command. 
 For example:
 
 ````md
@@ -170,13 +169,9 @@ echo 'hello world'
 ```
 ````
 
-results in:
+produces:
 
 ````md
-```sh > sh $ :: which outputs:
-echo 'hello world'
-```
-
 <!-- BEGIN mdsh -->
 which outputs:
 
@@ -186,7 +181,25 @@ hello world
 <!-- END mdsh --
 ````
 
-When rendered, this shows the command, the transition ("which outputs:"), and the output supporting a natural reading flow.
+When rendered, the command code block, the transition text, and the output block support a natural reading flow.
+
+You may also add the transition text as a comment following an `mdsh` invocation.
+For example:
+
+````md
+`> $ echo hi`
+<!-- :: outputs -->
+````
+
+produces:
+
+````md
+<!-- BEGIN mdsh -->
+outputs
+
+hi
+<!-- END mdsh -->
+````
 
 ## Installation
 

@@ -653,4 +653,42 @@ foo=bar
 `$foo` is bar
 <!-- END mdsh -->
 
+## Transition text
+
+#### Code block with transition producing raw markdown
+
+```sh > $ :: which outputs:
+echo 'hello world'
+```
+
+<!-- BEGIN mdsh -->
+which outputs:
+
+hello world
+<!-- END mdsh -->
+
+#### Code block with transition producing code block
+
+```sh > txt $ :: which outputs:
+echo 'hello world'
+```
+
+<!-- BEGIN mdsh -->
+which outputs:
+
+```txt
+hello world
+```
+<!-- END mdsh -->
+
+#### Inline code with transition producing raw markdown
+
+`> $ echo 'hello world' :: which outputs:`
+
+<!-- BEGIN mdsh -->
+which outputs:
+
+hello world
+<!-- END mdsh -->
+
 The end!
